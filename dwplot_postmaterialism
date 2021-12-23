@@ -1,0 +1,314 @@
+library(dotwhisker)
+dwplot(list(logit, logit_2),
+       vline = geom_vline(
+         xintercept = 0,
+         colour = "grey60",
+         linetype = 2
+       ),
+       dot_args = list(size=1.8),
+       whisker_args = list(size=1.2),
+       vars_order = c("postmat", "dissat", "postmat:dissat", "econdissat", "income", "polint", "poldis", "pertrust", "organ1", "educ", "ln_age", "sex1", "single1"),
+       model_order = c("Model 1", "Model 2")
+       ) %>% # plot line at zero _behind_coefs
+  relabel_predictors(
+    c(
+      postmat = "Post-materialism",
+      dissat = "Dissat.pol.system",
+      econdissat = "Dissat.econ",
+      income = "Income",
+      polint = "Pol.interest",
+      poldis = "Pol.discuss",
+      pertrust = "Interpersonal trust",
+      organ1 = "Organ.member",
+      educ = "Education",
+      ln_age = "log(age)",
+      sex1 = "Female",
+      single1 = "Single"
+    )
+  ) +
+  theme_bw(base_size = 15) +
+  xlab("Coefficient Estimate") + ylab("") +
+  ggtitle("Coefficient plot (Binary logistic models)")+
+  theme(
+    plot.title = element_text(face = "bold"),
+    legend.position = c(0.8, 0.01),
+    legend.justification = c(0, 0),
+    legend.background = element_rect(colour = "grey80"),
+    legend.title = element_blank()
+  ) +
+  scale_colour_hue(
+    labels= c("Model 2","Model 1")
+  )
+
+dwplot(list(ord, ord_2),
+       vline = geom_vline(
+         xintercept = 0,
+         colour = "grey60",
+         linetype = 2
+       ),
+       dot_args = list(size=1.8),
+       whisker_args = list(size=1.2),
+       vars_order = c("postmat", "dissat", "postmat:dissat", "econdissat", "income", "polint", "poldis", "pertrust", "organ1", "educ", "ln_age", "sex1", "single1"),
+       model_order = c("Model 1", "Model 2")
+) %>% # plot line at zero _behind_coefs
+  relabel_predictors(
+    c(
+      postmat = "Post-materialism",
+      dissat = "Dissat.pol.system",
+      econdissat = "Dissat.econ",
+      income = "Income",
+      polint = "Pol.interest",
+      poldis = "Pol.discuss",
+      pertrust = "Interpersonal trust",
+      organ1 = "Organ.member",
+      educ = "Education",
+      ln_age = "log(age)",
+      sex1 = "Female",
+      single1 = "Single"
+    )
+  ) +
+  theme_bw(base_size = 15) +
+  xlab("Coefficient Estimate") + ylab("") +
+  ggtitle("Coefficient plot (Ordered logistic models)")+
+  theme(
+    plot.title = element_text(face = "bold"),
+    legend.position = c(0.8, 0.01),
+    legend.justification = c(0, 0),
+    legend.background = element_rect(colour = "grey80"),
+    legend.title = element_blank()
+  ) +
+  scale_colour_hue(
+    labels= c("Model 2","Model 1")
+  )
+
+dwplot(list(logit2, logit2_2),
+       vline = geom_vline(
+         xintercept = 0,
+         colour = "grey60",
+         linetype = 2
+       ),
+       dot_args = list(size=1.8),
+       whisker_args = list(size=1.2),
+       vars_order = c("postmat1", "postmat2", "dissat", "postmat1:dissat", "postmat2:dissat", "econdissat", "income", "polint2", "polint3", "polint4", "poldis2", "poldis3", "pertrust", "organ1", "educ1", "educ2", "educ3", "educ4", "educ5", "educ6", "educ7", "ln_age", "sex1", "single1"),
+       model_order = c("Model 1", "Model 2")
+) %>% # plot line at zero _behind_coefs
+  relabel_predictors(
+    c(
+      postmat1 = "Mixed values",
+      postmat2 = "Post-materialist",
+      dissat = "Dissat.pol.system",
+      econdissat = "Dissat.econ",
+      income = "Income",
+      polint2 = "Polint: Not very int",
+      polint3 = "Polint: Somewhat int",
+      polint4 = "Polint: Very int",
+      poldis2 = "Poldis: Occasional",
+      poldis3 = "Poldis: Frequently",
+      pertrust = "Interpersonal trust",
+      organ1 = "Organ.member",
+      educ1 = "Primary education",
+      educ2 = "Lower.sec.edu",
+      educ3 = "Upper.sec.edu",
+      educ4 = "Postsec.non-tert",
+      educ5 = "Short-cyl tert",
+      educ6 = "Bachelor",
+      educ7 = "Master",
+      ln_age = "log(age)",
+      sex1 = "Female",
+      single1 = "Single",
+      "postmat1:dissat"="Mixed values*Dissat",
+      "postmat2:dissat"="Post-materialist*Dissat"
+    )
+  ) +
+  theme_bw(base_size = 15) +
+  xlab("Coefficient Estimate") + ylab("") +
+  ggtitle("Coefficient plot with categorical explanatory variables (Binary logistic models)")+
+  theme(
+    plot.title = element_text(face = "bold"),
+    legend.position = c(0.8, 0.01),
+    legend.justification = c(0, 0),
+    legend.background = element_rect(colour = "grey80"),
+    legend.title = element_blank()
+  ) +
+  scale_colour_hue(
+    labels= c("Model 4","Model 3")
+  )
+
+dwplot(list(ord2, ord2_2),
+       vline = geom_vline(
+         xintercept = 0,
+         colour = "grey60",
+         linetype = 2
+       ),
+       dot_args = list(size=1.8),
+       whisker_args = list(size=1.2),
+       vars_order = c("postmat1", "postmat2", "dissat", "postmat1:dissat", "postmat2:dissat", "econdissat", "income", "polint2", "polint3", "polint4", "poldis2", "poldis3", "pertrust", "organ1", "educ1", "educ2", "educ3", "educ4", "educ5", "educ6", "educ7", "ln_age", "sex1", "single1"),
+       model_order = c("Model 1", "Model 2")
+) %>% # plot line at zero _behind_coefs
+  relabel_predictors(
+    c(
+      postmat1 = "Mixed values",
+      postmat2 = "Post-materialist",
+      dissat = "Dissat.pol.system",
+      econdissat = "Dissat.econ",
+      income = "Income",
+      polint2 = "Polint: Not very int",
+      polint3 = "Polint: Somewhat int",
+      polint4 = "Polint: Very int",
+      poldis2 = "Poldis: Occasional",
+      poldis3 = "Poldis: Frequently",
+      pertrust = "Interpersonal trust",
+      organ1 = "Organ.member",
+      educ1 = "Primary education",
+      educ2 = "Lower.sec.edu",
+      educ3 = "Upper.sec.edu",
+      educ4 = "Postsec.non-tert",
+      educ5 = "Short-cyl tert",
+      educ6 = "Bachelor",
+      educ7 = "Master",
+      ln_age = "log(age)",
+      sex1 = "Female",
+      single1 = "Single",
+      "postmat1:dissat"="Mixed values*Dissat",
+      "postmat2:dissat"="Post-materialist*Dissat"
+    )
+  ) +
+  theme_bw(base_size = 15) +
+  xlab("Coefficient Estimate") + ylab("") +
+  ggtitle("Coefficient plot with categorical explanatory variables (Ordered logistic models)")+
+  theme(
+    plot.title = element_text(face = "bold"),
+    legend.position = c(0.8, 0.01),
+    legend.justification = c(0, 0),
+    legend.background = element_rect(colour = "grey80"),
+    legend.title = element_blank()
+  ) +
+  scale_colour_hue(
+    labels= c("Model 4","Model 3")
+  )
+
+## Factor analysis ##
+dwplot(list(logit_fa, ord_fa),
+       vline = geom_vline(
+         xintercept = 0,
+         colour = "grey60",
+         linetype = 2
+       ),
+       dot_args = list(size=1.8),
+       whisker_args = list(size=1.2),
+       vars_order = c("Factor2", "Factor1", "econdissat", "income", "polint", "poldis", "pertrust", "organ1", "educ", "ln_age", "sex1", "single1"),
+       model_order = c("Model 1", "Model 2")
+) %>% # plot line at zero _behind_coefs
+  relabel_predictors(
+    c(
+      Factor2 = "Factor.Post-materialism",
+      Factor1 = "Factor.Dissat.pol",
+      econdissat = "Dissat.econ",
+      income = "Income",
+      polint = "Pol.interest",
+      poldis = "Pol.discuss",
+      pertrust = "Interpersonal trust",
+      organ1 = "Organ.member",
+      educ = "Education",
+      ln_age = "log(age)",
+      sex1 = "Female",
+      single1 = "Single"
+    )
+  ) +
+  theme_bw(base_size = 15) +
+  xlab("Coefficient Estimate") + ylab("") +
+  ggtitle("Coefficient plot (Factor scores)")+
+  theme(
+    plot.title = element_text(face = "bold"),
+    legend.position = c(0.007, 0.01),
+    legend.justification = c(0, 0),
+    legend.background = element_rect(colour = "grey80"),
+    legend.title = element_blank()
+  ) +
+  scale_colour_hue(
+    labels= c("Ordered logistic model","Binary logistic model")
+  )
+
+## Boycott ##
+dwplot(list(logit_bo, logit_bo2),
+       vline = geom_vline(
+         xintercept = 0,
+         colour = "grey60",
+         linetype = 2
+       ),
+       dot_args = list(size=1.8),
+       whisker_args = list(size=1.2),
+       vars_order = c("postmat", "dissat", "postmat:dissat", "econdissat", "income", "polint", "poldis", "pertrust", "organ1", "educ", "ln_age", "sex1", "single1"),
+       model_order = c("Model 1", "Model 2")
+) %>% # plot line at zero _behind_coefs
+  relabel_predictors(
+    c(
+      postmat = "Post-materialism",
+      dissat = "Dissat.pol.system",
+      econdissat = "Dissat.econ",
+      income = "Income",
+      polint = "Pol.interest",
+      poldis = "Pol.discuss",
+      pertrust = "Interpersonal trust",
+      organ1 = "Organ.member",
+      educ = "Education",
+      ln_age = "log(age)",
+      sex1 = "Female",
+      single1 = "Single"
+    )
+  ) +
+  theme_bw(base_size = 15) +
+  xlab("Coefficient Estimate") + ylab("") +
+  ggtitle("Propensity to join boycotts (Binary logistic models)")+
+  theme(
+    plot.title = element_text(face = "bold"),
+    legend.position = c(0.007, 0.01),
+    legend.justification = c(0, 0),
+    legend.background = element_rect(colour = "grey80"),
+    legend.title = element_blank()
+  ) +
+  scale_colour_hue(
+    labels= c("With interaction","No interaction")
+  )
+
+## Strike ##
+dwplot(list(logit_st, logit_st2),
+       vline = geom_vline(
+         xintercept = 0,
+         colour = "grey60",
+         linetype = 2
+       ),
+       dot_args = list(size=1.8),
+       whisker_args = list(size=1.2),
+       vars_order = c("postmat", "dissat", "postmat:dissat", "econdissat", "income", "polint", "poldis", "pertrust", "organ1", "educ", "ln_age", "sex1", "single1"),
+       model_order = c("Model 1", "Model 2")
+) %>% # plot line at zero _behind_coefs
+  relabel_predictors(
+    c(
+      postmat = "Post-materialism",
+      dissat = "Dissat.pol.system",
+      econdissat = "Dissat.econ",
+      income = "Income",
+      polint = "Pol.interest",
+      poldis = "Pol.discuss",
+      pertrust = "Interpersonal trust",
+      organ1 = "Organ.member",
+      educ = "Education",
+      ln_age = "log(age)",
+      sex1 = "Female",
+      single1 = "Single"
+    )
+  ) +
+  theme_bw(base_size = 15) +
+  xlab("Coefficient Estimate") + ylab("") +
+  ggtitle("Propensity to join strikes (Binary logistic models)")+
+  theme(
+    plot.title = element_text(face = "bold"),
+    legend.position = c(0.007, 0.01),
+    legend.justification = c(0, 0),
+    legend.background = element_rect(colour = "grey80"),
+    legend.title = element_blank()
+  ) +
+  scale_colour_hue(
+    labels= c("With interaction","No interaction")
+  )
