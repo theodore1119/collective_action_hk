@@ -1,1 +1,1 @@
-The World Values Survey (WVS) data includes responses from various countries in Asia.
+The World Values Survey (WVS) data includes responses from various countries in Asia, including Japan, Hong Kong, Taiwan, mainland China, Singspoare, among others.
